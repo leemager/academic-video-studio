@@ -1,0 +1,12 @@
+# Direct dependencies are pinned; model snapshots are pinned in download-models.py.
+omnivoice==0.2.1
+torch==2.8.0
+torchaudio==2.8.0
+transformers==5.15.1
+numpy==2.2.6
+scipy==1.17.1
+soundfile==0.14.0
+faster-whisper==1.2.1
+audioseal==0.2.0
+imageio-ffmpeg==0.6.0
+praat-parselmouth==0.4.7

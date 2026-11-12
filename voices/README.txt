@@ -1,0 +1,1 @@
+No voice is supplied. Your original human reference, matching transcript and profile belong in a new ignored subfolder such as voices/local/. Read docs/VOICE.md. Keep these files private and back them up separately; Git does not upload them by default.

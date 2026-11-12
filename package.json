@@ -1,0 +1,55 @@
+{
+  "name": "academic-video-studio",
+  "version": "1.0.0",
+  "description": "Reusable academic video production with local cloned narration and Remotion",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leemager/academic-video-studio.git"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "private": true,
+  "dependencies": {
+    "@remotion/captions": "4.0.537",
+    "@remotion/cli": "4.0.537",
+    "@remotion/fonts": "4.0.537",
+    "@remotion/media": "4.0.537",
+    "@remotion/transitions": "4.0.537",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.537"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.537",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "10.12.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio --no-open --port=3020",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc",
+    "doctor": "node tools/doctor.mjs",
+    "voice": "node tools/voice.mjs",
+    "auditions": "node tools/auditions.mjs",
+    "render": "node tools/render.mjs",
+    "new-video": "node tools/new-video.mjs",
+    "register-voice": "node tools/python.mjs tools/register-voice.py",
+    "python": "node tools/python.mjs",
+    "test:template": "node tools/python.mjs tools/test-template.py",
+    "frames": "node tools/render-frames.mjs",
+    "check-share": "node tools/check-share.mjs"
+  },
+  "allowScripts": {
+    "esbuild": false
+  },
+  "overrides": {
+    "zod": "4.6.6",
+    "minimatch": "11.0.1"
+  }
+}

@@ -1,0 +1,11 @@
+Please set up this academic video studio for me. Read AGENTS.md, docs/SETUP.md, docs/VOICE.md and the skills in .agents/skills first. I want to be the academic director: you handle the technical setup, narration, editing, retakes, captions and rendering.
+
+Inspect my OS, CPU architecture, memory, free disk and GPU. Use the appropriate Windows, macOS or Linux setup entry point, keeping tools local to this folder and preserving existing files. Download the required public dependencies and model weights for the supported path. Report unsupported hardware clearly and benchmark a short passage before estimating a full video. Do not send my voice to a remote service, buy anything or publish material without my instruction.
+
+Set up Remotion and open the included StarterDemo in the browser. Check that it actually loads. Follow docs/VOICESTUDIO.md to help me install/use VoiceStudio if useful; the scripted OmniVoice workflow is also included so you can do repeatable generation without clicking through a desktop app for every passage. Explain relevant model/software licensing limits for my intended use.
+
+Ask me for a short original recording of my own voice and its accurate transcript, unless I have already added them. Help me prepare a clean reference and create my private voice profile. Never use someone else's bundled voice or clone from synthetic audio. Generate a short benchmark for me to hear, check the transcript, and give me an audition page if an alternative reading is needed. Preserve the exact take I choose.
+
+Once setup and the voice are ready, I will add notes, papers or other source material under notes/ and tell you the audience, topic and approximate duration. First draft an outline and script for my review. Identify supporting sources and uncertain claims. Once I approve, create the narration, purposeful visuals, restrained transitions and captions, then show me a preview and export the video. Avoid decorative micro-labels and background music unless I request them.
+
+For voice revisions, consider what the sentence means and where emphasis belongs. Keep natural breaths; regenerate whole passages instead of inserting artificial sentence pauses or cutting at word timestamps. Preserve approved passages when changing another section. Keep my voice and source material out of Git uploads by default.

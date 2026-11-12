@@ -1,0 +1,4 @@
+[
+  {"id":"idea","text":"A reusable video begins with one clear idea. Start with your own sources, decide what the audience needs to understand, and build the explanation around that purpose.","pause_after":0,"prosody":{"function":"invitation to explain","focus_words":["clear","purpose"],"ending":"neutral_fall","preserve_natural_breaths":true}},
+  {"id":"review","text":"You direct the content and review the script. The studio handles the narration and visuals, so you can spend more of your time exploring ideas with other people.","pause_after":0,"prosody":{"function":"explain the division of work","focus_words":["direct","exploring"],"unstressed_words":["people"],"ending":"neutral_fall","preserve_natural_breaths":true}}
+]

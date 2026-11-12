@@ -1,0 +1,16 @@
+{
+  "title": "Your ideas. Your voice.",
+  "subtitle": "Reusable videos for teaching and research",
+  "compositionId": "StarterDemo",
+  "author": "",
+  "credits": "Direct the content. Let Codex handle the production.",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "leadFrames": 90,
+  "durationInFrames": 600,
+  "scenes": [
+    {"id":"idea","text":"","from":90,"durationInFrames":210,"kind":"network","title":"Begin with one clear idea","detail":"Build a reusable explanation from your own sources.","beats":["Your sources","Your direction","Your video"]},
+    {"id":"review","text":"","from":300,"durationInFrames":210,"kind":"statement","title":"Make room for the conversation","detail":"Record the stable explanation. Spend live time exploring it.","beats":["Review the script. Shape the visuals. Keep your voice."],"transition":true}
+  ]
+}

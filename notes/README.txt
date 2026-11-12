@@ -1,0 +1,1 @@
+Put your notes, papers, slides, approved text and other materials in topic subfolders here. Tell Codex the folder, audience, purpose and approximate duration. These files are ignored by Git. Use an institutionally appropriate account and keep your own backup.

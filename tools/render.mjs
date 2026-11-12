@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const args=process.argv.slice(2),slug=args[0]||'starter-demo';
+if(!/^[a-z0-9-]+$/.test(slug))throw new Error('Invalid project slug.');
+const data=JSON.parse(fs.readFileSync(path.join(root,'src/data',slug+'.json'),'utf8'));
+const stamp=new Date().toISOString().replace(/[:.]/g,'-');
+const preview=args.includes('--preview');
+fs.mkdirSync(path.join(root,'renders'),{recursive:true});
+const out=path.join(root,'renders',`${slug}-${preview?'preview':'1080p'}-${stamp}.mp4`);
+const cli=path.join(root,'node_modules/@remotion/cli/remotion-cli.js');
+const concurrency=process.env.RENDER_CONCURRENCY||'2';
+const result=spawnSync(process.execPath,[cli,'render','src/index.ts',data.compositionId,out,'--codec=h264','--crf=20','--audio-codec=aac','--concurrency='+concurrency,...(preview?['--scale=0.5']:[])],{cwd:root,stdio:'inherit'});
+if(result.status!==0)process.exit(result.status??1);
+console.log(out);
