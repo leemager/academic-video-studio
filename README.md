@@ -4,9 +4,9 @@ Turn lecture notes, papers and other source material into reusable videos with y
 
 Use it for course introductions, prerequisite explanations, research summaries, methods walkthroughs or any stable information that benefits from being recorded once. Direct the work in ordinary language: change the argument, fix a pronunciation, simplify a diagram or ask for a different visual style.
 
-[![Watch the starter video](docs/starter-preview.png)](docs/starter-demo.mp4)
+[![Watch the starter guide on YouTube](docs/starter-preview.png)](https://youtu.be/Bbgd8lJnOZ8)
 
-**[Watch the guide — 90 seconds, with sound](docs/starter-demo.mp4)** · [Subtitles](docs/starter-demo.srt)
+**[Watch the guide on YouTube — 90 seconds, with sound](https://youtu.be/Bbgd8lJnOZ8)** · [Subtitles](docs/starter-demo.srt)
 
 ## Start here
 

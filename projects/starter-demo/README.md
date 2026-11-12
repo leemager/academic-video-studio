@@ -1,6 +1,6 @@
 # Starter guide
 
-[Watch the video](../../docs/starter-demo.mp4) · [Subtitles](../../docs/starter-demo.srt)
+[Watch the video on YouTube](https://youtu.be/Bbgd8lJnOZ8) · [Subtitles](../../docs/starter-demo.srt)
 
 A 90-second introduction to the studio, narrated in Lee Mager's cloned voice, with German, Italian and Russian examples.
 

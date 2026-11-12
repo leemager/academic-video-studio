@@ -9,7 +9,6 @@ const bundledData=new Set(['src/data/starter-demo.json','src/data/registry.ts'])
 const demoAudio='public/starter-demo/audio/narration-12251a8ec2e17c5b.wav';
 const bundledMedia=new Map([
  [demoAudio,'12251a8ec2e17c5beed36f34302b939d4421e2a5a5bf8a01111a2638a23a6e3c'],
- ['docs/starter-demo.mp4','6bc1dc4080cac518478712a889747049657f097bd95cf5b5c5beed17b51f2a8f'],
 ]);
 for(const file of files){
  const privatePath=/^(?:\.runtime|\.venv(?:-audio)?|\.work|voiceover|renders)\//.test(file)
