@@ -14,6 +14,6 @@ Use the original human reference throughout. A synthetic favourite is not a repl
 
 Default OmniVoice postprocessing can trim quiet edges and shorten silences. If a breath or phoneme sounds clipped, compare a new whole-passage take with `postprocess_output: false` in a versioned profile. Preserve the failed and approved takes. Raw output may have noisy or long edges; assess it before choosing. Never blanket-replace a whole approved narration to test one problematic passage.
 
-Uniform inserted pauses and ASR-based cutting have caused mid-breath jumps and boundaries inside words. Keep generated passages intact. If the speaker wants slower delivery, test a modestly lower generation speed on a new complete passage. Only add an inter-passage gap when the actual boundary needs it.
+Keep generated passages intact to preserve complete words and natural breaths. If the speaker wants slower delivery, test a modestly lower generation speed on a new complete passage. Add gaps only at reviewed passage boundaries; do not cut speech using ASR timestamps or insert uniform sentence pauses.
 
 For retakes, choose a complete short unit containing enough context. Prefer one or two purposeful candidates over many random seeds. Keep pronunciation preferences speaker-specific; do not assume a British/American vowel, glottal stop or speech rhythm from another person's feedback.

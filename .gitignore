@@ -24,6 +24,11 @@ projects/*
 public/*
 !public/fonts/
 !public/sfx/
+!public/starter-demo/
+public/starter-demo/*
+!public/starter-demo/audio/
+public/starter-demo/audio/*
+!public/starter-demo/audio/narration-12251a8ec2e17c5b.wav
 src/data/*
 !src/data/starter-demo.json
 !src/data/registry.ts

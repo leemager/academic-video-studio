@@ -1,1 +1,1 @@
-No voice is supplied. Your original human reference, matching transcript and profile belong in a new ignored subfolder such as voices/local/. Read docs/VOICE.md. Keep these files private and back them up separately; Git does not upload them by default.
+Codex stores your original recording, transcript and voice profile in a subfolder such as voices/local/. See docs/VOICE.md for setup. These files are excluded from Git uploads, so keep a separate backup.

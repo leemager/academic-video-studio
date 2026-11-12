@@ -1,0 +1,156 @@
+1
+00:00:00,467 --> 00:00:02,606
+Everything you hear in this video uses my
+cloned
+
+2
+00:00:02,607 --> 00:00:05,826
+voice. A bit 'uncanny valley', but it's
+pretty close
+
+3
+00:00:05,827 --> 00:00:08,406
+and plenty good enough for stock
+informational material like
+
+4
+00:00:08,407 --> 00:00:12,172
+this. This starter pack helps academics turn
+lecture notes,
+
+5
+00:00:12,332 --> 00:00:14,871
+research papers and explanations into videos
+they can use
+
+6
+00:00:14,872 --> 00:00:17,232
+again. You provide the knowledge and
+direction.
+
+7
+00:00:17,732 --> 00:00:19,592
+Codex takes care of the technical work.
+
+8
+00:00:19,982 --> 00:00:22,681
+Start with an MP3 of yourself speaking for
+around
+
+9
+00:00:22,682 --> 00:00:26,141
+fifteen seconds. Codex transcribes it, and
+Voice Studio uses
+
+10
+00:00:26,142 --> 00:00:27,902
+that short recording to clone your voice.
+
+11
+00:00:28,082 --> 00:00:30,302
+You can then turn a written script into
+narration.
+
+12
+00:00:31,392 --> 00:00:33,512
+The same voice can speak in many different
+languages.
+
+13
+00:00:33,692 --> 00:00:37,141
+For example... Das ist meine geklonte
+Stimme, die mit
+
+14
+00:00:37,142 --> 00:00:38,602
+meinem englischen Akzent Deutsch spricht.
+
+15
+00:00:39,642 --> 00:00:41,981
+Questa è la mia voce clonata che parla
+italiano
+
+16
+00:00:41,982 --> 00:00:43,402
+con il mio accento inglese.
+
+17
+00:00:44,032 --> 00:00:47,291
+Это мой клонированный голос, который говорит
+по-русски с моим
+
+18
+00:00:47,292 --> 00:00:51,191
+английским акцентом. Add your materials and
+tell Codex who
+
+19
+00:00:51,192 --> 00:00:53,311
+the video is for, what it should explain,
+and
+
+20
+00:00:53,312 --> 00:00:54,512
+roughly how long it should be.
+
+21
+00:00:54,732 --> 00:00:57,211
+It can draft an outline and script, or work
+
+22
+00:00:57,212 --> 00:00:58,372
+from words you've already written.
+
+23
+00:00:58,922 --> 00:01:02,301
+Using the Remotion video production skill,
+Codex builds the
+
+24
+00:01:02,302 --> 00:01:05,101
+visuals, times them to the narration, and
+adds transitions
+
+25
+00:01:05,102 --> 00:01:07,321
+and sound effects. You don't need to learn a
+
+26
+00:01:07,322 --> 00:01:08,742
+video editor or write any code.
+
+27
+00:01:09,272 --> 00:01:12,591
+Just give ordinary feedback: simplify that
+diagram, slow down
+
+28
+00:01:12,592 --> 00:01:14,671
+this section, or give me another reading of
+that
+
+29
+00:01:14,672 --> 00:01:16,632
+sentence. You're the academic director.
+
+30
+00:01:17,382 --> 00:01:20,101
+To begin, create a folder, open it in Codex,
+
+31
+00:01:20,102 --> 00:01:21,902
+and ask it to download this starter pack.
+
+32
+00:01:22,142 --> 00:01:24,641
+Follow the starter prompt and add your
+recording and
+
+33
+00:01:24,642 --> 00:01:27,621
+materials. Make the explanation once, then
+spend more time
+
+34
+00:01:27,622 --> 00:01:28,162
+on the conversation.

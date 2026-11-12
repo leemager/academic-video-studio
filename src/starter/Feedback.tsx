@@ -1,0 +1,3 @@
+import {useCurrentFrame} from 'remotion';
+import {C,Concept,In,Title} from './theme';
+export const Feedback=()=>{const f=useCurrentFrame();const phrases=['“Simplify that diagram.”','“Try a slower reading.”','“Give me another take.”'];const index=f<93?0:f<147?1:2;return <><Title>Direct it in ordinary language</Title><div style={{position:'absolute',left:130,top:405,width:850,fontSize:66,lineHeight:1.2,color:C.mint}}>{phrases[index]}</div><div style={{position:'absolute',left:1010,top:330,width:780,height:380}}><Concept simple={f>55}/></div><In delay={190} style={{position:'absolute',left:130,top:820,fontSize:56,fontWeight:550}}>You’re the academic director.</In></>};

@@ -1,0 +1,13 @@
+import {loadFont} from '@remotion/fonts';
+import {AbsoluteFill,Easing,interpolate,staticFile,useCurrentFrame} from 'remotion';
+import type {CSSProperties,ReactNode} from 'react';
+export const C={bg:'#20262d',panel:'#303943',light:'#f5f3eb',muted:'#bcc6cc',mint:'#92dfca',purple:'#b5a8e5',line:'#56636e'};
+export const ease={extrapolateLeft:'clamp',extrapolateRight:'clamp',easing:Easing.bezier(.16,1,.3,1)} as const;
+loadFont({family:'GuideInter',url:staticFile('fonts/inter-Inter[opsz,wght].ttf'),weight:'100 900'});
+export type GuideScene={id:string;text:string;language:string;translation?:string;from:number;durationInFrames:number;wave:number[]};
+export const Stage=({children}:{children:ReactNode})=><AbsoluteFill style={{background:C.bg,color:C.light,fontFamily:'GuideInter, Arial, sans-serif',overflow:'hidden'}}><style>{'*{box-sizing:border-box}'}</style>{children}</AbsoluteFill>;
+export const In=({children,delay=0,style={}}:{children:ReactNode;delay?:number;style?:CSSProperties})=>{const f=useCurrentFrame();return <div style={{opacity:interpolate(f,[delay,delay+18],[0,1],ease),translate:`0 ${interpolate(f,[delay,delay+27],[24,0],ease)}px`,...style}}>{children}</div>};
+export const Title=({children}:{children:ReactNode})=><In style={{position:'absolute',left:125,top:105,right:125,fontSize:88,fontWeight:650,lineHeight:1.12,letterSpacing:-3}}>{children}</In>;
+export const Wave=({values,width=700,height=150,color=C.mint,progress=1}:{values:number[];width?:number;height?:number;color?:string;progress?:number})=><svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>{values.map((v,i)=><rect key={i} x={i*width/values.length} y={height/2-Math.max(3,v*height/2)} width={Math.max(2,width/values.length-4)} height={Math.max(6,v*height)} rx={3} fill={color} opacity={i/values.length<=progress?1:.23}/>)}</svg>;
+export const Arrow=()=> <svg width="130" height="50" viewBox="0 0 130 50"><path d="M8 25H112M94 7L112 25L94 43" stroke={C.mint} strokeWidth="6" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+export const Concept=({simple=false}:{simple?:boolean})=><svg viewBox="0 0 760 360" style={{width:'100%',height:'100%'}}><path d={simple?'M150 180H380H610':'M150 180H310Q360 180 360 80H610M360 180Q360 280 410 280H610'} stroke={C.line} strokeWidth="8" fill="none"/>{(simple?[[150,180],[380,180],[610,180]]:[[150,180],[360,180],[610,80],[610,280]]).map(([x,y],i)=><g key={i}><circle cx={x} cy={y} r={i===0?55:46} fill={i===0?C.mint:i===1?C.purple:C.panel} stroke={i>1?C.mint:'none'} strokeWidth={3}/><path d={`M${x-15} ${y}L${x-3} ${y+12}L${x+20} ${y-14}`} stroke={i<2?C.bg:C.light} strokeWidth="5" fill="none" strokeLinecap="round"/></g>)}</svg>;

@@ -1,2 +1,2 @@
 export type SceneData = {id:string;text:string;from:number;durationInFrames:number;kind:string;title:string;detail?:string;image?:string;beats:string[];transition?:boolean};
-export type ProjectData = {title:string;subtitle?:string;compositionId:string;author:string;credits:string;fps:number;width:number;height:number;audio?:string;audioHash?:string;leadFrames:number;durationInFrames:number;scenes:SceneData[]};
+export type ProjectData = {title:string;subtitle?:string;compositionId:string;author:string;credits:string;fps:number;width:number;height:number;audio?:string;audioHash?:string;audioFromFrames?:number;leadFrames:number;durationInFrames:number;scenes:SceneData[]};

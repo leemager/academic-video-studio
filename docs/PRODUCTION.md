@@ -36,7 +36,7 @@ Save that list as `projects/my-topic/imports.json`, then:
 npm run python -- tools/import-narration.py --script projects/my-topic/script.json --files projects/my-topic/imports.json --output voiceover/my-topic/import-01 --synthetic
 ```
 
-Omit `--synthetic` for a real human recording. Import needs the audio utilities from the voice or audio-only Python environment, but no inference/model weights. On an Intel Mac the bootstrap automatically installs the lightweight audio environment. On another machine use `--audio-only` (`-AudioOnly` on Windows) if that is all you need. This does not fabricate a clone/reference provenance.
+Omit `--synthetic` for a human recording. Import needs the audio utilities from the voice or audio-only Python environment, but no model weights. On an Intel Mac the bootstrap automatically installs the lightweight audio environment. On another machine use `--audio-only` (`-AudioOnly` on Windows) if that is all you need.
 
 ## Voice alternatives
 
@@ -58,7 +58,7 @@ npm run python -- tools/voice/assemble.py --base voiceover/my-topic/take-01 --ou
 npm run voice -- --output voiceover/my-topic/take-02 --transcribe-only
 ```
 
-Read the actual chosen filename from the UI/selection folder; `CHOSEN-FILE.json` is illustrative. Assembly preserves each chosen passage byte-for-byte and leaves other selected passages untouched. Changed academic text requires an explicitly reviewed script update and a new narration take. Never pretend an older selected waveform says revised words.
+Read the actual chosen filename from the UI/selection folder; `CHOSEN-FILE.json` is illustrative. Assembly preserves each chosen passage byte-for-byte and leaves other selected passages untouched. If the words change, update the script for review and generate a new take.
 
 ## Visuals and timing
 
@@ -89,6 +89,6 @@ npm run render -- my-topic
 npm run python -- tools/voice/export-captions.py --take voiceover/my-topic/take-02 --alignment voiceover/my-topic/take-02 --output renders/my-topic-v1.srt --offset 1.5
 ```
 
-The caption offset must be `leadFrames / fps`, not always 1.5. Use a unique SRT name and rename/copy it alongside its matching MP4. The exporter uses approved spelling and ASR timing, recording approximate spans. Review those spans and specialist names. It is never an audio cutting tool. For imported audio without ASR, transcribe with a supported local transcription tool and create verified captions; don't invent precise timing.
+The caption offset must match the narration's actual start: `(audioFromFrames ?? leadFrames) / fps`, not always 1.5. Most projects start after the intro; the included starter demo begins its audio during the opening and uses a 14/30-second offset (about 0.467 seconds). Use a unique SRT name and rename/copy it alongside its matching MP4. The exporter uses approved spelling and ASR timing, recording approximate spans. Review those spans and specialist names. It is never an audio cutting tool. For imported audio without ASR, transcribe with a supported local transcription tool and create verified captions; don't invent precise timing.
 
-Inspect representative frames and transitions with an image viewer. Probe the final file using FFprobe (if installed) or Remotion's media inspection; verify dimensions, duration, audio stream, clipping/levels and playback. Be explicit when only machine checks were possible. Keep the final editable sources, captions and asset/source list. Ask the academic for final content/listening review where needed; don't publish automatically.
+Inspect representative frames and transitions with an image viewer. Probe the final file using FFprobe (if installed) or Remotion's media inspection; verify dimensions, duration, audio stream, clipping/levels and playback. Deliver the video, editable sources, captions and asset/source list for the academic's review.

@@ -1,0 +1,11 @@
+{
+  "speaker": "Lee Mager",
+  "synthetic": true,
+  "audio": "public/starter-demo/audio/narration-12251a8ec2e17c5b.wav",
+  "sha256": "12251a8ec2e17c5beed36f34302b939d4421e2a5a5bf8a01111a2638a23a6e3c",
+  "sample_rate": 24000,
+  "duration_seconds": 88.275125,
+  "video_audio_offset_seconds": 0.4666666666666667,
+  "video_duration_seconds": 89.96666666666667,
+  "script": "script.json"
+}

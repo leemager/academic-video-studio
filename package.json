@@ -40,6 +40,7 @@
     "render": "node tools/render.mjs",
     "new-video": "node tools/new-video.mjs",
     "register-voice": "node tools/python.mjs tools/register-voice.py",
+    "transcribe-reference": "node tools/python.mjs tools/voice/transcribe_reference.py",
     "python": "node tools/python.mjs",
     "test:template": "node tools/python.mjs tools/test-template.py",
     "frames": "node tools/render-frames.mjs",

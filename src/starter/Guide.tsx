@@ -1,0 +1,15 @@
+import {AbsoluteFill,Sequence,interpolate,staticFile,useCurrentFrame} from 'remotion';
+import {Audio} from '@remotion/media';
+import {Stage,C,type GuideScene} from './theme';
+import {Opening} from './Opening';
+import {Purpose} from './Purpose';
+import {Voice} from './Voice';
+import {Languages} from './Languages';
+import {Direction} from './Direction';
+import {Production} from './Production';
+import {Feedback} from './Feedback';
+import {Closing} from './Closing';
+import data from '../data/starter-demo.json';
+const Cut=()=>{const f=useCurrentFrame();return <AbsoluteFill style={{background:C.mint,translate:`${interpolate(f,[0,10,20],[-105,0,105])}% 0`}}/>};
+const Content=({scene}:{scene:GuideScene})=>{switch(scene.id){case 'opening':return <Opening scene={scene}/>;case 'purpose':return <Purpose/>;case 'clone':return <Voice scene={scene}/>;case 'languages':case 'german':case 'italian':case 'russian':return <Languages scene={scene}/>;case 'direction':return <Direction/>;case 'production':return <Production scene={scene}/>;case 'refine':return <Feedback/>;default:return <Closing/>;}};
+export const Guide=()=> <Stage>{data.scenes.map(scene=><Sequence key={scene.id} from={scene.from} durationInFrames={scene.durationInFrames} name={scene.id}><Content scene={scene}/></Sequence>)}<Sequence from={data.audioFromFrames}><Audio src={staticFile(data.audio)}/></Sequence>{data.scenes.filter(s=>['purpose','direction','begin'].includes(s.id)).map(scene=><Sequence key={'wipe-'+scene.id} from={scene.from-10} durationInFrames={21}><Cut/><Audio src={staticFile('sfx/soft-swoosh.wav')} volume={.11}/></Sequence>)}</Stage>;

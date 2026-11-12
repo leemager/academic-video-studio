@@ -1,4 +1,107 @@
 [
-  {"id":"idea","text":"A reusable video begins with one clear idea. Start with your own sources, decide what the audience needs to understand, and build the explanation around that purpose.","pause_after":0,"prosody":{"function":"invitation to explain","focus_words":["clear","purpose"],"ending":"neutral_fall","preserve_natural_breaths":true}},
-  {"id":"review","text":"You direct the content and review the script. The studio handles the narration and visuals, so you can spend more of your time exploring ideas with other people.","pause_after":0,"prosody":{"function":"explain the division of work","focus_words":["direct","exploring"],"unstressed_words":["people"],"ending":"neutral_fall","preserve_natural_breaths":true}}
+  {
+    "id": "opening",
+    "language": "en",
+    "text": "Everything you hear in this video uses my cloned voice. A bit 'uncanny valley', but it's pretty close and plenty good enough for stock informational material like this.",
+    "pause_after": 0.15,
+    "prosody": {
+      "function": "friendly introduction, lightly amused aside",
+      "focus_words": [
+        "cloned"
+      ],
+      "ending": "neutral_fall",
+      "deemphasize_last": true
+    }
+  },
+  {
+    "id": "purpose",
+    "language": "en",
+    "text": "This starter pack helps academics turn lecture notes, research papers and explanations into videos they can use again. You provide the knowledge and direction. Codex takes care of the technical work.",
+    "pause_after": 0.15,
+    "prosody": {
+      "function": "explain the central division of work",
+      "ending": "neutral_fall"
+    }
+  },
+  {
+    "id": "clone",
+    "language": "en",
+    "text": "Start with an MP3 of yourself speaking for around fifteen seconds. Codex transcribes it, and Voice Studio uses that short recording to clone your voice. You can then turn a written script into narration.",
+    "pause_after": 0.15,
+    "prosody": {
+      "function": "make setup approachable",
+      "ending": "neutral_fall"
+    }
+  },
+  {
+    "id": "languages",
+    "language": "en",
+    "text": "The same voice can speak in many different languages. For example...",
+    "pause_after": 0.25,
+    "prosody": {
+      "function": "introduce a demonstration",
+      "ending": "continuing"
+    }
+  },
+  {
+    "id": "german",
+    "language": "de",
+    "text": "Das ist meine geklonte Stimme, die mit meinem englischen Akzent Deutsch spricht.",
+    "pause_after": 0.35,
+    "translation": "This is my cloned voice speaking in German with my English accent."
+  },
+  {
+    "id": "italian",
+    "language": "it",
+    "text": "Questa è la mia voce clonata che parla italiano con il mio accento inglese.",
+    "pause_after": 0.35,
+    "translation": "This is my cloned voice speaking in Italian with my English accent."
+  },
+  {
+    "id": "russian",
+    "language": "ru",
+    "text": "Это мой клонированный голос, который говорит по-русски с моим английским акцентом.",
+    "pause_after": 0.3,
+    "translation": "This is my cloned voice speaking in Russian with my English accent."
+  },
+  {
+    "id": "direction",
+    "language": "en",
+    "text": "Add your materials and tell Codex who the video is for, what it should explain, and roughly how long it should be. It can draft an outline and script, or work from words you've already written.",
+    "pause_after": 0.15,
+    "prosody": {
+      "function": "describe the academic's inputs",
+      "ending": "neutral_fall"
+    }
+  },
+  {
+    "id": "production",
+    "language": "en",
+    "text": "Using the Remotion video production skill, Codex builds the visuals, times them to the narration, and adds transitions and sound effects. You don't need to learn a video editor or write any code.",
+    "pause_after": 0.15,
+    "prosody": {
+      "function": "explain technical production without jargon",
+      "ending": "neutral_fall"
+    }
+  },
+  {
+    "id": "refine",
+    "language": "en",
+    "text": "Just give ordinary feedback: simplify that diagram, slow down this section, or give me another reading of that sentence. You're the academic director.",
+    "pause_after": 0.15,
+    "prosody": {
+      "function": "friendly examples of direction",
+      "ending": "neutral_fall"
+    }
+  },
+  {
+    "id": "begin",
+    "language": "en",
+    "text": "To begin, create a folder, open it in Codex, and ask it to download this starter pack. Follow the starter prompt and add your recording and materials. Make the explanation once, then spend more time on the conversation.",
+    "pause_after": 0,
+    "prosody": {
+      "function": "clear invitation to start",
+      "ending": "neutral_fall"
+    }
+  }
 ]

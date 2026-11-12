@@ -7,8 +7,9 @@ import re
 import subprocess
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -23,6 +24,33 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
 class TemplateChecks(unittest.TestCase):
+    def test_reference_transcription_preserves_recording_and_existing_text(self):
+        transcriber=load('reference_transcriber',ROOT/'tools/voice/transcribe_reference.py')
+        folder=ROOT/'.work';folder.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='owned-transcription-test-',dir=folder) as tmp:
+            temp=Path(tmp);transcriber.ROOT=temp
+            audio=temp/'recording.mp3';audio.write_bytes(b'original recording fixture')
+            before=sha(audio);output=temp/'transcript.txt'
+            model_dir=temp/'model';model_dir.mkdir();(model_dir/'model.bin').write_bytes(b'fixture')
+            word=SimpleNamespace(word=' Bonjour.',start=0.0,end=1.0,probability=.92)
+            segment=SimpleNamespace(start=0.0,end=1.0,text=' Bonjour.',words=[word])
+            asr=Mock(return_value=(iter([segment]),SimpleNamespace(language='fr',language_probability=.99)))
+            model=SimpleNamespace(model=SimpleNamespace(is_multilingual=True),transcribe=asr)
+            factory=Mock(return_value=model)
+            with patch.dict(sys.modules,{'faster_whisper':SimpleNamespace(WhisperModel=factory)}):
+                result=transcriber.transcribe_reference(audio,output,model_dir=model_dir)
+                self.assertEqual(result['text'],'Bonjour.')
+                self.assertEqual(output.read_text(encoding='utf-8'),'Bonjour.\n')
+                self.assertEqual(read(output.with_suffix('.asr.json'))['audio_sha256'],before)
+                self.assertEqual(asr.call_args.kwargs['task'],'transcribe')
+                self.assertIsNone(asr.call_args.kwargs['language'])
+                self.assertTrue(factory.call_args.kwargs['local_files_only'])
+                with self.assertRaises(FileExistsError):
+                    transcriber.transcribe_reference(audio,output,model_dir=model_dir)
+                self.assertEqual(factory.call_count,1)
+                self.assertEqual(output.read_text(encoding='utf-8'),'Bonjour.\n')
+                self.assertEqual(sha(audio),before)
+
     def test_resume_rejects_changed_profile(self):
         renderer=load('renderer',ROOT/'tools/voice/render.py')
         folder=ROOT/'.work';folder.mkdir(exist_ok=True)
@@ -63,9 +91,12 @@ class TemplateChecks(unittest.TestCase):
                 if '://' in link or link.startswith('#'):continue
                 self.assertTrue((p.parent/link.split('#')[0]).exists(),f'{p}: {link}')
 
-    def test_neutral_demo(self):
+    def test_demo_audio_and_timing(self):
         d=read(ROOT/'src/data/starter-demo.json')
-        self.assertNotIn('audio',d)
+        release=read(ROOT/'projects/starter-demo/narration-release.json')
+        self.assertEqual(sha(ROOT/'public'/d['audio']),release['sha256'])
+        self.assertEqual(d['audioHash'],release['sha256'])
+        self.assertLessEqual(d['audioFromFrames']/d['fps']+release['duration_seconds'],d['durationInFrames']/d['fps'])
         self.assertEqual(d['scenes'][0]['from'],d['leadFrames'])
         for a,b in zip(d['scenes'],d['scenes'][1:]):self.assertEqual(a['from']+a['durationInFrames'],b['from'])
         self.assertLessEqual(d['scenes'][-1]['from']+d['scenes'][-1]['durationInFrames'],d['durationInFrames'])

@@ -31,5 +31,3 @@ Give Codex the audience, learning or communication purpose, approximate length, 
 “Make a new version for next year's cohort. Tell me which facts need rechecking; preserve the rest of the script and approved narration.”
 
 “Translate this approved short explanation into French. Keep the English source beside the translation for review, use my original voice reference, and flag pronunciation for a fluent speaker to check.”
-
-Codex should distinguish mechanical checks from human listening. A transcript can catch omissions but cannot certify that the voice sounds exactly like you. A short initial audition and focused retakes are usually more useful than repeatedly listening to an entire long video.

@@ -1,38 +1,48 @@
 # Set up your own cloned voice
 
-Codex should carry out the commands. The academic supplies the recording and checks the short result.
+Give Codex an MP3 recording of your voice, around 15 seconds long. Use one speaker, a quiet room and no background music. An ordinary microphone or a clean excerpt from an existing recording can work.
 
-## Reference recording
+Codex transcribes the recording automatically and shows you the words for a quick check, particularly names or specialist terms. You only need to supply the audio. Keep the original recording for future use.
 
-Use your own original speech, or a speaker whose voice use is authorised. Aim for 10–25 seconds of clean, natural speech with one speaker, no music and little room echo. Three to sixty seconds is accepted by the registration tool. Avoid a sentence cut halfway through a word or breath. An ordinary microphone or a clean excerpt from an existing recording can work.
+## For Codex: transcribe the recording
 
-Provide a UTF-8 text file containing the words actually spoken, including false starts if present. It is not the script you wish the recording contained. Codex can transcribe locally and ask you to verify uncertainties. Keep the original recording; any carefully selected excerpt becomes a separately versioned reference. Don't clone from generated output.
-
-## Register the reference
-
-After setup, place the files under `notes/voice-input/`, then run:
+Place the original under `notes/voice-input/` and run:
 
 ```sh
-npm run register-voice -- --audio notes/voice-input/original.wav --transcript notes/voice-input/transcript.txt --name "Your name"
+npm run transcribe-reference -- --audio notes/voice-input/original.mp3 --output notes/voice-input/transcript.txt --language en
+```
+
+Use the recording's language code, or omit `--language` for detection. This uses local faster-whisper on the CPU; it needs no GPU, plugin or API key. The full setup includes the multilingual Whisper small model. The command can also download that pinned model on first use or use an existing model with `--model-dir`.
+
+Show the transcript for a quick check and clarify unclear names or phrases. The `.asr.json` alongside it contains word timings and confidence for inspection. Keep the words actually spoken, including grammatical slips; the reference transcript must match the audio. Then register the checked transcript below.
+
+For an audio-only installation, Codex should install `faster-whisper==1.2.1` into the interpreter recorded in `.runtime/local.json` using the local uv installer. If that package is unavailable for the machine, set up a compatible local transcription engine, such as whisper.cpp. Produce the same UTF-8 transcript file; the academic still only supplies the recording.
+
+## For Codex: register the reference
+
+After checking the generated transcript:
+
+```sh
+npm run register-voice -- --audio notes/voice-input/original.mp3 --transcript notes/voice-input/transcript.txt --name "Your name"
 npm run voice -- --check
 ```
 
-The helper copies the original, converts the complete recording to mono 24 kHz WAV without timing cuts, saves an accurate transcript, records both hashes and creates `voices/local/profile.json`. Existing profiles are never overwritten. Use `--id local-v2` for another reference and pass `--profile voices/local-v2/profile.json` to generation, or set `profile` in ignored `.runtime/local.json`. Use `--language fr` or another supported lowercase language code when appropriate.
+The tool accepts 3–60 seconds of speech. It copies the original, converts the complete recording to mono 24 kHz WAV, and creates `voices/local/profile.json` with reference hashes and generation settings. Use the original human recording as input.
 
-The clone uses a reference at generation time; it is not a separately trained model. Future inference still needs the engine and model weights. The profile defaults are a starting point, not a promise of identity or perfect prosody.
+For a different reference, use `--id local-v2`, then pass `--profile voices/local-v2/profile.json` to generation or set `profile` in `.runtime/local.json`. Use `--language fr` or another supported code as appropriate.
 
-## Benchmark before a long job
+## Try a short sample
 
 ```sh
 npm run voice -- --script projects/starter-demo/smoke-script.json --output voiceover/benchmark-001
 ```
 
-Use a new output path each time. Read the actual device, duration and generation times from the manifest and scene records. Model loading and transcription add time beyond synthesis. Present the short WAV to the academic and inspect `transcription-qa.json`. If the result is unclear or the voice is wrong, improve the reference before making a long video.
+Present the audio, inspect `transcription-qa.json`, and read the device and generation time from the output records. Use a new take folder for each alternative. Save pronunciation preferences in the voice folder's `preferences.json`.
 
-Record confirmed accent, names and emphasis preferences in the voice folder's `preferences.json`. Never assume another speaker's preferences. For revisions use the [whole-passage audition workflow](PRODUCTION.md#voice-alternatives).
+For revisions, use the [audition workflow](PRODUCTION.md#voice-alternatives). The academic chooses a reading and Codex applies that exact audio.
 
-## Privacy and portability
+## Keep the voice for future projects
 
-`voices/`, `voiceover/` and `notes/` are ignored. Neither Git push nor the shared template backs these up. Keep a private, authorised backup of the original human recording, transcript, profiles, approved waveforms and selection records. The portable inputs are the original reference, transcript and settings; exact approved output files remain necessary to preserve approved delivery.
+Back up the original recording, transcript, profile and selected narration along with the editable projects. These personal files are excluded from Git uploads by default.
 
-See [VoiceStudio](VOICESTUDIO.md) if you want a desktop recording/cloning interface. Use the original reference and transcript across both workflows. A VoiceStudio-generated WAV is an output, not the identity reference.
+The same original recording and transcript can be used in the [VoiceStudio desktop app](VOICESTUDIO.md) and this studio's scripted renderer.
